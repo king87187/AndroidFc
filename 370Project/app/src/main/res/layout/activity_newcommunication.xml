@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/headerStyle"
+        android:text="黑名单" />
+    <Button
+        android:onClick="addBlackNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="添加" />
+    <com.example.dalu.a370project.customView.AutoListView
+
+
+
+    android:id="@+id/lv_black"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    </com.example.dalu.a370project.customView.AutoListView>
+</LinearLayout>
