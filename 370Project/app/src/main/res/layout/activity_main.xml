@@ -13,7 +13,7 @@
         android:textSize="20pt"
         android:background="@color/colorAccent"
         android:textColor="@color/colorPrimaryDark"
-        android:text="137卫士" />
+        android:text="钻石卫士" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:singleLine="true"
-        android:text="有了手机卫士, 腰不酸了,腿不疼了,走路也有劲了, 手机卫士太NB了"
+        android:text="东半球第三牛逼的手机卫士，不管你信不信，反正我是信了！！！"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
     <GridView

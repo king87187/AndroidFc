@@ -14,7 +14,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +37,7 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
     private TextView tv_ram;
     private TextView tv_des ;
     private int mProcessCount;
+    String mStrTotalSpace;
     private long mAvailSpace;
     ProcessManagerAdapter adapter;
     private Button bt_select_all,bt_select_reverse,bt_clear,bt_setting;
@@ -155,7 +155,8 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
 
         //总运行内存大小,并且格式化
         long totalSpace = ProcessInfoProvider.getTotalSpace(this);
-        String mStrTotalSpace = Formatter.formatFileSize(this, totalSpace);
+
+        mStrTotalSpace = Formatter.formatFileSize(this, totalSpace);
 
         tv_ram.setText("剩余/总共:" + strAvailSpace + "/" + mStrTotalSpace);
     }
@@ -225,8 +226,9 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
 
             if (type == 0) {
                 //展示灰色纯文本条目
-                ViewHolder holder = null;
+               /* ViewHolder holder = null;
                 if (convertView == null) {
+                    //convertView = new TextView(ProcessManageActivity.this);
                     convertView = View.inflate(getApplicationContext(), R.layout.listview_app_item_title, null);
                     holder = new ViewHolder();
                     holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
@@ -237,7 +239,21 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
                 if (position == 0) {
                     holder.tv_title.setText("用户进程(" + userProcessInfos.size() + ")");
                 } else {
-                    holder.tv_title.setText("系统进程(" + systemProcessInfos.size() + ")");
+                    holder.tv_title.setText();
+                }*/
+                TextView textView = new TextView(ProcessManageActivity.this);
+                textView.setTextColor(Color.WHITE);
+
+                textView.setBackgroundColor(Color.GRAY);
+                if(position == 0) {
+
+
+                    textView.setText("用户程序(" + userProcessInfos.size() + ")");
+                    convertView = textView;
+
+                }else{
+                    textView.setText("系统进程(" + systemProcessInfos.size() + ")");
+                    convertView = textView;
                 }
                 return convertView;
             } else {
@@ -350,11 +366,12 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
         mAvailSpace += totalReleaseSpace;
         //11,根据进程总数和剩余空间大小
         tv_processNum.setText("进程总数:"+mProcessCount);
-        tv_ram.setText("剩余/总共"+Formatter.formatFileSize(this, mAvailSpace)+"/"+mAvailSpace);
+        tv_ram.setText("剩余/总共"+Formatter.formatFileSize(this, mAvailSpace)+"/"+mStrTotalSpace);
         //12,通过吐司告知用户,释放了多少空间,杀死了几个进程,
-        String totalRelease = Formatter.formatFileSize(this, totalReleaseSpace);
-//		ToastUtil.show(getApplicationContext(), "杀死了"+killProcessList.size()+"个进程,释放了"+totalRelease+"空间");
-
+        String totalRelease =   Formatter.formatFileSize(this, totalReleaseSpace);
+//		ToastUtil.show(getApplicationContext(), );
+        Toast.makeText(this,"杀死了"+killProcessList.size()+"个进程,释放了"+ totalRelease +"空间",
+                Toast.LENGTH_SHORT).show();
 //		jni  java--c   c---java
         //占位符指定数据%d代表整数占位符,%s代表字符串占位符
        /* Toast.show(getApplicationContext(),

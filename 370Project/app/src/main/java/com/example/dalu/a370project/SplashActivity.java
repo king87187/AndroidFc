@@ -104,7 +104,7 @@ public class SplashActivity extends Activity {
         if (updateFlag){
             checkVerson();
         }else {
-            mHandler.sendEmptyMessageDelayed(CODE_ENTER_HOME,2000);
+            mHandler.sendEmptyMessageDelayed(CODE_ENTER_HOME,1000);
         }
         AlphaAnimation animation = new AlphaAnimation(0.3f,1f);
         animation.setDuration(1000);
