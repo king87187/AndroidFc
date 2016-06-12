@@ -39,17 +39,26 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
     private int mProcessCount;
     String mStrTotalSpace;
     private long mAvailSpace;
+    private long mTotalspace;
+    String mStrTotalSpace;
     ProcessManagerAdapter adapter;
     private Button bt_select_all,bt_select_reverse,bt_clear,bt_setting;
     private ProcessInfo mProcessInfo;
-
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            adapter = new ProcessManagerAdapter();
+            listView.setAdapter(adapter);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_process);
+        initData();
         initUI();
         initTitleData();
-        initData();
+
     }
 
     private void initUI() {
@@ -170,13 +179,7 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
         CheckBox checkBox;
     }
 
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-             adapter = new ProcessManagerAdapter();
-            listView.setAdapter(adapter);
-        }
-    };
+
 
     class ProcessManagerAdapter extends BaseAdapter {
         @Override
