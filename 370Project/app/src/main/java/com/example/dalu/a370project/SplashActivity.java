@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,6 +20,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dalu.a370project.utils.ConstantValue;
+import com.example.dalu.a370project.utils.SpUtil;
 import com.example.dalu.a370project.utils.StreamUtil;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -109,8 +112,34 @@ public class SplashActivity extends Activity {
         AlphaAnimation animation = new AlphaAnimation(0.3f,1f);
         animation.setDuration(1000);
         rl_splash.startAnimation(animation);
+        if(!SpUtil.getBoolean(this, ConstantValue.HAS_SHORTCUT, false)){
+            //生成快捷方式
+            initShortCut();
+        }
     }
 
+    /**
+     * 生成快捷方式
+     */
+    private void initShortCut() {
+        //1,给intent维护图标,名称
+        Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+        //维护图标
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON,
+                BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+        //名称
+        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "黑马卫士");
+        //2,点击快捷方式后跳转到的activity
+        //2.1维护开启的意图对象
+        Intent shortCutIntent = new Intent("android.intent.action.HOME");
+        shortCutIntent.addCategory("android.intent.category.DEFAULT");
+
+        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortCutIntent);
+        //3,发送广播
+        sendBroadcast(intent);
+        //4,告知sp已经生成快捷方式
+        SpUtil.putBoolean(this, ConstantValue.HAS_SHORTCUT, true);
+    }
     /**
      * 获取版本名称
      *

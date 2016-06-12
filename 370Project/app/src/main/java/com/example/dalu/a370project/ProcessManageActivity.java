@@ -1,6 +1,7 @@
 package com.example.dalu.a370project;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 
 import com.example.dalu.a370project.dao.ProcessInfo;
 import com.example.dalu.a370project.engine.ProcessInfoProvider;
+import com.example.dalu.a370project.utils.ConstantValue;
+import com.example.dalu.a370project.utils.SpUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -201,7 +204,13 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
 
         @Override
         public int getCount() {
-            return userProcessInfos.size() + systemProcessInfos.size() + 2;
+            boolean aBoolean = SpUtil.getBoolean(ProcessManageActivity.this, ConstantValue.SHOW_SYSTEM, false);
+            if (aBoolean){
+                return userProcessInfos.size() + systemProcessInfos.size() + 2;
+            }
+            else {
+                return userProcessInfos.size() + 1;
+            }
         }
 
         @Override
@@ -312,8 +321,22 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
                 clearAll();
                 break;
             case R.id.btn_setting:
-
+                processSetting();
                 break;
+        }
+    }
+
+    private void processSetting() {
+        Intent intent = new Intent(this,ProcessSetting.class);
+        startActivityForResult(intent,0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (0==requestCode){
+            adapter.notifyDataSetChanged();
         }
     }
 
