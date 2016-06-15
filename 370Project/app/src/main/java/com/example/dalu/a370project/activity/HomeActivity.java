@@ -1,4 +1,4 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dalu.a370project.R;
 
 /**
  * Created by DALU on 2016/4/12.

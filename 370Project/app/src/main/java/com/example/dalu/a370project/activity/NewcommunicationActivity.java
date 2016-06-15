@@ -1,29 +1,26 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dalu.a370project.Adapter.ListViewAdapter;
+import com.example.dalu.a370project.R;
+import com.example.dalu.a370project.WangApplication;
 import com.example.dalu.a370project.customView.AutoListView;
 import com.example.dalu.a370project.customView.XListView;
 import com.example.dalu.a370project.dao.BlackNumberInfo;
@@ -34,7 +31,6 @@ import org.xutils.ex.DbException;
 import org.xutils.x;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**

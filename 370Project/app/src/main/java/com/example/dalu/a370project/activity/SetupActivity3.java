@@ -1,4 +1,4 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -7,15 +7,16 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.dalu.a370project.R;
+
 /**
  * Created by DALU on 2016/4/23.
  */
-public class SetupActivity3 extends BaseSetupActivity{
+public class SetupActivity3 extends BaseSetupActivity {
     private String usernumber;
     private EditText mPhoneNum;
     private  SharedPreferences spf;

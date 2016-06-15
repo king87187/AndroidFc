@@ -1,4 +1,4 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -27,6 +27,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.dao.AppInfo;
 import com.example.dalu.a370project.engine.AppInfos;
 
@@ -36,6 +37,7 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @ContentView(R.layout.content_app_manage)
 public class AppManageActivity extends Activity   implements View.OnClickListener{
     @ViewInject(R.id.list_view)

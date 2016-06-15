@@ -12,4 +12,10 @@
         android:layout_height="wrap_content"
         android:onClick="searchFrom"
         android:text="归属地查询"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="queryPublicNum"
+        android:text="常用号码查询"/>
 </LinearLayout>

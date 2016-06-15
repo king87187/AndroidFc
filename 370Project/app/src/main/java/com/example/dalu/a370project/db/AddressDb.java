@@ -8,15 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
  */
 public class AddressDb {
     private static final String PATH = "data/data/com.example.dalu.a370project/files/address.db";// 注意,该路径必须是data/data目录的文件,否则数据库访问不到
-
+    private static final String PATHNUM = "data/data/com.example.dalu.a370project/files/commonnum.db";
     public static String getAddress(String number) {
         String address = "未知号码";
-
         // 获取数据库对象
         SQLiteDatabase database = SQLiteDatabase.openDatabase(PATH, null,
                 SQLiteDatabase.OPEN_READONLY);
-
-
         if (number.matches("^1[3-8]\\d{9}$")) {// 匹配手机号码
             Cursor cursor = database
                     .rawQuery(
@@ -67,11 +64,11 @@ public class AddressDb {
                             if (cursor.moveToNext()) {
                                 address = cursor.getString(0);
                             }
-
                             cursor.close();
                         }
                     }
                     break;
+
             }
         }
 

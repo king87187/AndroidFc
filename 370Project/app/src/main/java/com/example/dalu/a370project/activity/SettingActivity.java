@@ -1,4 +1,4 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.customView.SettingClickView;
 import com.example.dalu.a370project.customView.SettingItem;
 import com.example.dalu.a370project.service.AddressService;

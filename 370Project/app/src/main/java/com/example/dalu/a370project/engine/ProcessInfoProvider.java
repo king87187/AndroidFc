@@ -1,14 +1,11 @@
 package com.example.dalu.a370project.engine;
 
 import android.app.ActivityManager;
-import android.app.Service;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Debug;
 
-import com.example.dalu.a370project.ProcessManageActivity;
 import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.dao.ProcessInfo;
 

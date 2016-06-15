@@ -1,22 +1,14 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -24,40 +16,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dalu.a370project.Adapter.MyBaseAdapter;
+import com.example.dalu.a370project.R;
+import com.example.dalu.a370project.WangApplication;
 import com.example.dalu.a370project.customView.XListView;
 import com.example.dalu.a370project.dao.BlackNumberInfo;
 
 import org.xutils.DbManager;
-import org.xutils.db.Selector;
-import org.xutils.db.sqlite.SqlInfo;
-import org.xutils.db.sqlite.WhereBuilder;
 import org.xutils.ex.DbException;
 import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.widget.AbsListView;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.ListView;
-
-import static android.widget.AbsListView.OnScrollListener.*;
 
 /**
  * Created by DALU on 2016/5/17.
@@ -67,7 +39,6 @@ public class communicationActivity extends Activity implements XListView.IXListV
     DbManager db;
     //BlackListAdapter adapter;
     List<BlackNumberInfo> persons;
-
 
     private XListView mListView;
     private SimpleAdapter mAdapter1;

@@ -1,4 +1,4 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.dao.ProcessInfo;
 import com.example.dalu.a370project.engine.ProcessInfoProvider;
 import com.example.dalu.a370project.utils.ConstantValue;

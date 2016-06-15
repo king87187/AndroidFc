@@ -1,10 +1,12 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.dalu.a370project.R;
 
 /**
  * Created by DALU on 2016/4/23.

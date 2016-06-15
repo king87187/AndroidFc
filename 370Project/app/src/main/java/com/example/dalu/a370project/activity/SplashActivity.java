@@ -1,4 +1,4 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.utils.ConstantValue;
 import com.example.dalu.a370project.utils.SpUtil;
 import com.example.dalu.a370project.utils.StreamUtil;
@@ -57,7 +58,7 @@ public class SplashActivity extends Activity {
     private String mDownloadUrl;// 下载地址
     private RelativeLayout rl_splash;
     private Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
+        public void handleMessage(Message msg) {
 
            //Bundle bundle= msg.getData();
             switch (msg.what) {
@@ -102,6 +103,7 @@ public class SplashActivity extends Activity {
         tvVersion.setText("版本名:" + getVersionName());
         tvProgress = (TextView) findViewById(R.id.tv_progress);// 默认隐藏
         copyDB("address.db");
+        copyDB("commonnum.db");
         SharedPreferences sp =getSharedPreferences("config",MODE_PRIVATE);
         boolean updateFlag = sp.getBoolean("auto_update",true);
         if (updateFlag){

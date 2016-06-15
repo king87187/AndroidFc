@@ -1,22 +1,13 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
-import com.alibaba.fastjson.JSON;
-import com.example.dalu.a370project.dao.AddressDao;
-import com.example.dalu.a370project.dao.JUHeAddress;
+import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.db.AddressDb;
-
-import org.xutils.common.Callback;
-import org.xutils.http.HttpMethod;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
 
 
 /**

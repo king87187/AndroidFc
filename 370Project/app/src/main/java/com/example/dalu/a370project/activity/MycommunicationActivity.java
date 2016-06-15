@@ -1,20 +1,16 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -25,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dalu.a370project.Adapter.MyBaseAdapter;
+import com.example.dalu.a370project.R;
+import com.example.dalu.a370project.WangApplication;
 import com.example.dalu.a370project.customView.XListView;
 import com.example.dalu.a370project.dao.BlackNumberInfo;
 

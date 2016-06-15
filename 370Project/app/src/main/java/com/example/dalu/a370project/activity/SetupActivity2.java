@@ -1,6 +1,5 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.customView.SettingItem;
 
 /**

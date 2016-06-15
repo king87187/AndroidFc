@@ -1,14 +1,14 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import com.example.dalu.a370project.R;
 
 /**
  * Created by DALU on 2016/4/23.
  */
-public class SetupActivity1 extends BaseSetupActivity{
+public class SetupActivity1 extends BaseSetupActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

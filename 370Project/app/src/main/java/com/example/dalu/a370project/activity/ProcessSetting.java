@@ -1,4 +1,4 @@
-package com.example.dalu.a370project;
+package com.example.dalu.a370project.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
+import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.service.LockScreenService;
 import com.example.dalu.a370project.utils.ConstantValue;
 import com.example.dalu.a370project.utils.ServiceStatusUtils;
