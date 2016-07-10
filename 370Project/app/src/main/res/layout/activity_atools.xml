@@ -18,4 +18,15 @@
         android:layout_height="wrap_content"
         android:onClick="queryPublicNum"
         android:text="常用号码查询"/>
+    <Button
+        android:id="@+id/tv_app_lock"
+        android:padding="5dp"
+        android:text="程序锁"
+        android:onClick="cAppLock"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:drawableLeft="@android:drawable/btn_star"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Button>
 </LinearLayout>

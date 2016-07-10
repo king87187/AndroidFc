@@ -104,6 +104,7 @@ public class SplashActivity extends Activity {
         tvProgress = (TextView) findViewById(R.id.tv_progress);// 默认隐藏
         copyDB("address.db");
         copyDB("commonnum.db");
+        copyDB("antivirus.db");
         SharedPreferences sp =getSharedPreferences("config",MODE_PRIVATE);
         boolean updateFlag = sp.getBoolean("auto_update",true);
         if (updateFlag){

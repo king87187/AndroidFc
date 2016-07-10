@@ -16,6 +16,9 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
     <application
         android:name=".WangApplication"
         android:allowBackup="true"
@@ -32,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -44,7 +47,7 @@
         <activity android:name=".activity.AtoolsActivity"/>
         <activity android:name=".activity.CommonNumberQuery"/>
         <activity android:name=".activity.DragViewActivity"/>
-        <activity android:name=".activity.HomeActivity"/>
+        <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.LostAndFound"/>
         <activity android:name=".activity.MycommunicationActivity"/>
         <activity android:name=".activity.NewcommunicationActivity"/>
@@ -55,15 +58,30 @@
         <activity android:name=".activity.SetupActivity2" />
         <activity android:name=".activity.SetupActivity3" />
         <activity android:name=".activity.SetupActivity4" />
-
+        <activity android:name=".activity.AppLockActivity"/>
+        <activity android:name=".activity.EnterPwdActivity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true">
+            </activity>
+        <activity android:name=".activity.KillvirusActivity"/>
+        <activity android:name=".activity.CacheCleanActivity"/>
+        <activity android:name=".activity.SDCacheCleanActivity"/>
+        <activity android:name=".activity.BaseCacheCleanActivity"/>
+        <activity android:name=".activity.TrafficActivity"/>
         <receiver android:name=".receiver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.SmsReceiver">
-            <intent-filter android:priority="2147483647">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+        <intent-filter android:priority="2147483647">
+            <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+        </intent-filter>
+    </receiver>
+
+        <receiver android:name=".receiver.KillProcessReceiver">
+            <intent-filter >
+                <action android:name="android.intent.action.KILL_BACKGROUND_PROCESS" />
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.MyAppWidgetProvider">
@@ -83,6 +101,7 @@
             android:enabled="true"
             android:exported="true"></service>
         <service android:name=".service.UpdateWidgetService"/>
+        <service android:name=".service.WatchDogSerive"/>
     </application>
 
 </manifest>

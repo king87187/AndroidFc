@@ -41,4 +41,11 @@
         wangdl:desc_off="已关闭"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.example.dalu.a370project.customView.SettingItem>
+    <com.example.dalu.a370project.customView.SettingItem
+        android:id="@+id/msv_softlock"
+        wangdl:titleName="程序锁设置"
+        wangdl:desc_on="已开启"
+        wangdl:desc_off="已关闭"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.example.dalu.a370project.customView.SettingItem>
 </LinearLayout>

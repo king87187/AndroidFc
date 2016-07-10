@@ -56,6 +56,16 @@ public class HomeActivity extends Activity {
                     case 3:
                         startActivity(new Intent(HomeActivity.this,ProcessManageActivity.class));
                         break;
+                    case 4:
+                        startActivity(new Intent(HomeActivity.this,TrafficActivity.class));
+                        break;
+                    case 5:
+                        startActivity(new Intent(HomeActivity.this,KillvirusActivity.class));
+                        break;
+                    case 6:
+                        //缓存清理
+                        startActivity(new Intent(HomeActivity.this,BaseCacheCleanActivity.class));
+                        break;
                     case 7:
                         startActivity(new Intent(HomeActivity.this,AtoolsActivity.class));
                         break;

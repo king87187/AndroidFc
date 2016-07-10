@@ -1,9 +1,14 @@
 package com.example.dalu.a370project;
 
 import android.app.Application;
+import android.os.Environment;
 
 import org.xutils.DbManager;
 import org.xutils.x;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 /**
  * Created by DALU on 2016/5/11.
@@ -29,6 +34,20 @@ public class WangApplication  extends Application {
                             // ...
                         }
                     });//数据库更新操作
+            Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+                @Override
+                public void uncaughtException(Thread thread, Throwable ex) {
+                    String path = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator+"wangError.log";
+                    File file = new File(path);
+                    try {
+                        PrintWriter pw = new PrintWriter(file);
+                        ex.printStackTrace(pw);
+                        pw.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
 }

@@ -22,4 +22,10 @@ public class AtoolsActivity extends Activity {
     public void queryPublicNum(View v){
         startActivity(new Intent(this,CommonNumberQuery.class));
     }
+    public void cAppLock(View v) {
+
+                startActivity(new Intent(getApplicationContext(), AppLockActivity.class));
+
+
+    }
 }

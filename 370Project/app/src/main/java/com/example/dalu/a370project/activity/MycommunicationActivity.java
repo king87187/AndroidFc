@@ -121,10 +121,14 @@ private ImageView imageView;
 
         db = x.getDb(((WangApplication)getApplicationContext()).getDaoConfig());
        // persons = new ArrayList<BlackNumberInfo>();
-        List<BlackNumberInfo> lstnum = new ArrayList<BlackNumberInfo>();
+        List<BlackNumberInfo> lstnum = null;
         try {
             lstnum = db.selector(BlackNumberInfo.class).findAll();
-            totalNumber = lstnum.size();
+            if(null!=lstnum) {
+                totalNumber = lstnum.size();
+            }else {
+                totalNumber = 0;
+            }
 
         } catch (DbException e) {
             e.printStackTrace();
@@ -171,7 +175,9 @@ private ImageView imageView;
    class BlackListAdapter extends MyBaseAdapter<BlackNumberInfo> {
 
         private BlackListAdapter(List lists, Context mContext) {
-            super(lists, mContext);
+
+                super(lists, mContext);
+
         }
 
         @Override

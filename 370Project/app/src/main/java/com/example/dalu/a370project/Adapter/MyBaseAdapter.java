@@ -27,7 +27,12 @@ import java.util.List;
         }
         @Override
         public int getCount() {
-            return lists.size();
+            if (lists!=null) {
+                return lists.size();
+            }
+            else {
+                return 0;
+            }
         }
 
         @Override

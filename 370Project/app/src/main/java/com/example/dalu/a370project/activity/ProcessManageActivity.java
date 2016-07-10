@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dalu.a370project.R;
 import com.example.dalu.a370project.dao.ProcessInfo;
@@ -40,7 +41,6 @@ public class ProcessManageActivity extends Activity implements View.OnClickListe
     private TextView tv_ram;
     private TextView tv_des ;
     private int mProcessCount;
-    String mStrTotalSpace;
     private long mAvailSpace;
     private long mTotalspace;
     String mStrTotalSpace;

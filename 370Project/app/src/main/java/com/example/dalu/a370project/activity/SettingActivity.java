@@ -13,6 +13,7 @@ import com.example.dalu.a370project.customView.SettingClickView;
 import com.example.dalu.a370project.customView.SettingItem;
 import com.example.dalu.a370project.service.AddressService;
 import com.example.dalu.a370project.service.BlackDefenceService;
+import com.example.dalu.a370project.service.WatchDogSerive;
 import com.example.dalu.a370project.utils.ServiceStatusUtils;
 
 
@@ -23,7 +24,7 @@ public class SettingActivity extends Activity {
     SettingItem settingItem;
     SettingItem settingItemAddress;
     SettingItem settingItemBlack;
-
+    SettingItem settingItemLock;
     SettingClickView scvAddressStyle;
     SettingClickView scvAddressLocation;
     SharedPreferences mspf;
@@ -39,6 +40,37 @@ public class SettingActivity extends Activity {
         initAddressLocation();
         initAddressStyle();
         initBlack();
+        initAppLock();
+    }
+
+    private void initAppLock() {
+        settingItemLock = (SettingItem) findViewById(R.id.msv_softlock);
+
+        // 根据黑名单服务是否运行来更新checkbox
+        boolean serviceRunning = ServiceStatusUtils.isServiceRunning(this,
+                "com.example.dalu.a370project.service.WatchDogSerive");
+
+        if (serviceRunning) {
+            settingItemLock.setCheckBox(true);
+        } else {
+            settingItemLock.setCheckBox(false);
+        }
+
+        settingItemLock.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (settingItemLock.ischeckOk()) {
+                    settingItemLock.setCheckBox(false);
+                    stopService(new Intent(SettingActivity.this,
+                            WatchDogSerive.class));// 停止归属地服务
+                } else {
+                    settingItemLock.setCheckBox(true);
+                    startService(new Intent(SettingActivity.this,
+                            WatchDogSerive.class));// 开启归属地服务
+                }
+            }
+        });
     }
 
     private void initUpdateView(){
